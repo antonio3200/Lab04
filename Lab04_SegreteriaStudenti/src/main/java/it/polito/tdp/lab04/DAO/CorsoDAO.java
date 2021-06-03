@@ -81,6 +81,7 @@ public class CorsoDAO {
 			while (rs.next()) {
 				studentiIscrittiAlCorso.add(new Studente(rs.getInt("matricola"),rs.getString("cognome"),rs.getString("nome"),rs.getString("cds")));
 				}
+			conn.close();
 			}catch(SQLException e) {
 				throw new RuntimeException("Errore db",e);
 			}

@@ -8,10 +8,9 @@ import it.polito.tdp.lab04.DAO.StudenteDAO;
 public class Model {
 	private StudenteDAO studenteDAO;
 	private CorsoDAO corsoDAO;
-	public Model(StudenteDAO studenteDAO, CorsoDAO corsoDAO) {
-		super();
-		this.studenteDAO = studenteDAO;
-		this.corsoDAO = corsoDAO;
+	public Model() {
+		this.studenteDAO = new  StudenteDAO();
+		this.corsoDAO = new CorsoDAO();
 	}
 	
 	public List<Corso> getTuttiICorsi(){
@@ -25,7 +24,12 @@ public class Model {
 		return corsoDAO.getStudentiIscrittiAlCorso(corso);
 	}
 	
-	
+	public List<Corso> getCorsiPerStudente(Studente studente){
+		return studenteDAO.getCorsiPerStudente(studente);
+	}
+	public Boolean isStudenteIscrittoAlCorso(Studente studente,Corso corso) {
+		return studenteDAO.isStudenteIscrittoAlCorso(studente, corso);
+	}
 	
 
 }

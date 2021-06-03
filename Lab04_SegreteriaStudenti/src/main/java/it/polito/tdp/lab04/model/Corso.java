@@ -1,6 +1,6 @@
 package it.polito.tdp.lab04.model;
 
-public class Corso {
+public class Corso  implements Comparable<Corso> {
 private String codins;
 private String nome;
 private int crediti;
@@ -73,7 +73,13 @@ public boolean equals(Object obj) {
 
 @Override
 public String toString() {
-	return "Corso [codins=" + codins + ", nome=" + nome + ", crediti=" + crediti + ", pd=" + pd + "]";
+	return nome;
+}
+
+@Override
+public int compareTo(Corso c) {
+	
+	return this.nome.compareTo(c.nome);
 }
 
 
